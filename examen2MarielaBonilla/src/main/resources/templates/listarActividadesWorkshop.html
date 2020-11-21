@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Actividades</title>
+</head>
+<body>
+<div>
+    <h1>Lista de actividades del <span th:text="${workshop.name}"></span></h1>
+</div>
+</div>
+    <a th:href="@{'/registrarActividad/' + ${workshop.id}}"><button>Agregar nueva actividad</button></a>
+    <a style="margin: 30px 10px;" th:href="@{'/perfilWorkshop/'+${workshop.id}}"><button>Volver al perfil</button><a/>
+    <a th:href="@{'/listarWorkshops'}"><button>Ir a la lista de workshops</button><a/>
+    <a th:href="'/'"><button>Volver al home</button><a/>
+</div>
+        <div>
+            <h1>
+                Lista de actividades del workshop
+            </h1>
+        </div>
+<div>
+    <table id="actividades">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Texto</th>
+            <th>Tiempo</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr th:if="${actividades.isEmpty()}">
+            <td th:text="${mensaje}"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr th:each="actividad : ${actividades}">
+            <td th:text="${actividad.name}"></td>
+            <td th:text="${actividad.description}"></td>
+            <td th:text="${actividad.text}"></td>
+            <td th:text="${actividad.time}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

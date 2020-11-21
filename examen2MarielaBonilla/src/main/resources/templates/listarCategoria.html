@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Categorías</title>
+</head>
+<body>
+	<div>
+		<h1>Lista de Categorías</h1>
+	</div>
+	<div>
+		<table id="categorias">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Estado</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody >
+			<tr th:if="${categorias.isEmpty()}">
+				<td th:text="${mensaje}"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+				<tr th:each="categoria : ${categorias}">
+					<td th:text="${categoria.name}"></td>
+					<td th:text="${categoria.status}"></td>
+					<td><a th:href="@{'/editar/categoria/' + ${categoria.id}}"><button>Editar</button><a/>
+					<a th:href="@{'/eliminar/categoria/' + ${categoria.id}}"><button>Eliminar</button><a/></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<a th:href="'/registrarCategoria'"><button>Registrar nueva categoría</button><a/>
+	<a th:href="'/'"><button>Volver al home</button><a/>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Actividades</title>
+
+</head>
+<body>
+<h2>
+    Registrar actividad
+</h2>
+<div>
+    <form action="#" th:action="@{'/registrarActividad/'+${actividad.workshop.id}}" th:object="${actividad}" method="post">
+        <div style="margin: 30px 30px;">
+            <label for="name">Nombre</label>
+            <input type="text" th:field="*{name}" id="name" required="required">
+        </div>
+        <div style="margin: 30px 30px;">
+            <label for="description">Descripcion</label>
+            <input type="text" th:field="*{description}" id="description" required="required">
+        </div>
+
+        <div style="margin: 30px 30px;">
+            <label for="text">Texto</label>
+            <input type="text" th:field="*{text}" id="text" required="required">
+        </div>
+
+        <div style="margin: 30px 30px;">
+            <label for="time">Tiempo de duracion</label>
+            <input type="text" th:field="*{tiempoTemporal}" id="time" th:placeholder="'horas:minutos:segundos'"
+                   th:pattern="${^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/}" required="required">
+        </div>
+
+
+        <input style="margin: 10px 30px;" type="submit" value="Registrar actividad">
+    </form>
+</div>
+
+<div style="margin: 20px 30px;">
+    <a style="margin: 30px 10px;" th:href="@{'/perfilWorkshop/'+${actividad.workshop.id}}"><button>Cancelar registro</button><a/>
+
+    <a style="margin: 30px 10px;" th:href="@{'/listarWorkshops'}"><button>Ir a la lista de workshops</button><a/>
+        <a style="margin: 30px 10px;" th:href="'/'"><button>Volver al home</button><a/>
+
+</div>
+
+</body>
+</html>

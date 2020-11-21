@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Workshops</title>
+
+</head>
+<body>
+<h2>
+    Editar workshop
+</h2>
+<div>
+    <form action="#" th:action="@{'/editar/workshop/'+${workshop.id}}" th:object="${workshop}" method="post">
+        <div style="margin: 30px 30px;">
+            <label for="name">Nombre</label>
+            <input type="text" th:field="*{name}" id="name" required>
+        </div>
+        <div style="margin: 30px 30px;">
+            <label for="autor">Autor</label>
+            <select id="autor" th:field="*{autor}" required>
+                <option th:value="Maria">Maria</option>
+                <option th:value="Juan">Juan</option>
+                <option th:value="Daniela">Daniela</option>
+            </select>
+        </div>
+        <div style="margin: 30px 30px;">
+            <label for="categoria">Categoria</label>
+            <select th:field="*{categoria}" id="categoria"  required>
+                <option th:value="null" disabled>Seleccione una categoria</option>
+                <div th:each="categoria : ${categorias}">
+                    <option th:text="${categoria.name}" th:value="${categoria.id}"></option>
+                </div>
+            </select>
+        </div>
+        <div style="margin: 30px 30px;">
+            <label for="objective">Objetivo del taller</label>
+            <input type="text" th:field="*{objective}" id="objective" required>
+        </div>
+        <div style="margin: 30px 30px;">
+            <p>Keywords</p>
+            <div  >
+                <label for="keyword1">Keyword #1</label>
+                <input type="text" th:field="*{listaKeys[0]}" id="keyword1" required>
+                <label for="keyword1">Keyword #2</label>
+                <input type="text"  th:field="*{listaKeys[1]}" id="keyword2" required>
+                <label for="keyword1">Keyword #3</label>
+                <input type="text" th:field="*{listaKeys[2]}" id="keyword3" required>
+            </div>
+
+        </div>
+
+        <input style="margin: 10px 30px;" type="submit" value="Actualizar workshop">
+    </form>
+</div>
+
+<div style="margin: 20px 30px;">
+    <a style="margin: 30px 10px;" th:href="@{'/perfilWorkshop/'+${workshop.id}}"><button>Cancelar edición</button><a/>
+
+    <a style="margin: 30px 10px;" th:href="@{'/listarWorkshops'}"><button>Ir a la lista de workshops</button><a/>
+        <a style="margin: 30px 10px;" th:href="'/'"><button>Volver al home</button><a/>
+
+</div>
+
+</body>
+</html>

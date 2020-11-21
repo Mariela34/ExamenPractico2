@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Workshop's</title>
+</head>
+<body>
+<div>
+    <h1>Lista de Workshops</h1>
+</div>
+<div>
+    <a th:href="'/registrarWorkshop'"><button>Registrar nuevo workshop</button><a/>
+    <a th:href="'/'"><button>Volver al home</button><a/>
+</div>
+<div>
+    <div>
+        <h1>
+            Lista de workshops
+        </h1>
+    </div>
+    <table id="workshops">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Autor</th>
+            <th>Categoria</th>
+            <th>Objetivo</th>
+            <th>Palabras claves</th>
+            <th>Tiempo de duracion</th>
+            <th>Opciones</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr th:if="${workshops.isEmpty()}">
+            <td th:text="${mensaje}"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr th:each="workshop : ${workshops}">
+            <td th:text="${workshop.name}"></td>
+            <td th:text="${workshop.autor}"></td>
+            <td th:text="${workshop.categoria.name}"></td>
+            <td th:text="${workshop.objective}"></td>
+            <td th:text="${workshop.keywords}"></td>
+            <td th:text="${workshop.tiempoDuracion}"></td>
+            <td><a th:href="@{'/editar/workshop/' + ${workshop.id}}"><button>Editar</button><a/>
+                <a th:href="@{'/perfilWorkshop/' + ${workshop.id}}"><button>Ver perfil</button><a/>
+                <a th:href="@{'/verActividades/' + ${workshop.id}}"><button>Ver actividades</button><a/>
+                <a th:href="@{'/obtenerReporte/' + ${workshop.id}}"><button>Descargar reporte</button></a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

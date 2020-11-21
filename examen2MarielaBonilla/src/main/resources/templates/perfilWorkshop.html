@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Perfil Workshop</title>
+</head>
+<body>
+<div>
+    <h1>Perfil Workshop</h1>
+
+    <a th:href="@{'/editar/workshop/' + ${workshop.id}}"><button>Editar workshop</button></a>
+    <a th:href="@{'/registrarActividad/' + ${workshop.id}}"><button>Agregar nuevo actividad</button></a>
+    <a th:href="@{'/verActividades/' + ${workshop.id}}"><button>Ver Actividades</button></a>
+    <a th:href="@{'/obtenerReporte/' + ${workshop.id}}"><button>Descargar reporte</button></a>
+
+    <div>
+        <h4>Nombre:<span th:text="${workshop.name}">Name</span></h4>
+
+        <h4>Autor:
+            <span th:text="${workshop.autor}">Autor</span></h4>
+
+        <h4>Categoria:
+            <span th:text="${workshop.categoria.getName()}">Categoria</span></h4>
+
+        <h4>Objetivo del taller:
+            <span th:text="${workshop.objective}">Text</span></h4>
+
+        <h4>Palabras clave:
+            <span th:text="${workshop.keywords}">Keywords</span></h4>
+
+
+        <h4>Tiempo de duracion total:
+            <span th:text="${workshop.tiempoDuracion}">Tiempo</span></h4>
+
+
+    </div>
+    <div>
+        <div>
+            <h1>
+                Lista de actividades del workshop
+            </h1>
+        </div>
+        <table id="actividades">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Texto</th>
+                    <th>Tiempo</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr th:each="actividad : ${workshop.actividades}">
+                    <td th:text="${actividad.name}"></td>
+                    <td th:text="${actividad.description}"></td>
+                    <td th:text="${actividad.text}"></td>
+                    <td th:text="${actividad.tiempoTemporal}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a th:href="@{'/listarWorkshops'}"><button>Volver a la lista</button><a/>
+        <a th:href="'/'"><button>Volver al home</button><a/>
+    </div>
+</div>
+</body>
+</html>

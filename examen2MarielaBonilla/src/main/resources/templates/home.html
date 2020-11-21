@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+	<meta charset="UTF-8">
+	<title>La empresa TeCaSa</title>
+</head>
+<body>
+	<div style="margin: 20px 50px;">
+		<h2>Home</h2>
+		<h3>Usted se encuentra en el menu principal</h3>
+		<div class="menu">
+
+			<a href="/registrarWorkshop"><button>Registrar workshop</button></a>
+			<a href="/listarWorkshops"><button>Listar workshops</button></a>
+			<a href="/buscar/categoria"><button>Listar workshop por categoría</button></a>
+			<a href="/buscar/keywords"><button>Listar workshop por keyword</button></a>
+
+
+		</div>
+
+		<div  class="menu">
+			<a href="/buscar/autor"><button>Listar workshop por autor</button></a>
+			<a href="/listarActividades"><button>Listar todas las actividades</button></a>
+			<a href="/mantenimientoCategorias"><button>Ir al mantenimiento de categorias</button></a>
+			<a href="/mantenimientoCategorias"><button>Ir al mantenimiento de categorias</button></a>
+			<a href="/listardatatable"><button>Listar workshop por datatable</button></a>
+		</div>
+	</div>
+
+</body>
+</html>
