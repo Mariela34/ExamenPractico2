@@ -7,20 +7,20 @@
     <title>Workshop's</title>
 </head>
 <body>
-<div>
+<div style="margin: 10px 40px;">
     <h1>Lista de Workshops</h1>
 </div>
 <div>
     <a th:href="'/registrarWorkshop'"><button>Registrar nuevo workshop</button><a/>
         <a th:href="'/'"><button>Volver al home</button><a/>
 </div>
-<div>
-    <h2> Busqueda de workshops por categoria</h2>
+<div style="display: inline-block;">
+    <h1 style="display: inherit;margin: 50px 40px;"> Busqueda de workshops por categoria</h1>
     <form action="#" th:action="@{'/buscar/categoria'}" method="post" th:object="${workshop}">
         <div style="margin: 30px 30px;">
             <label for="categoria">Seleccione una categoria para empezar a buscar</label>
             <select th:field="*{categoria}" id="categoria" required="required">
-                <option value="vacio" th:disabled="disabled" th:selected="true">Seleccione una categoria</option>
+                <option th:value="null" th:disabled="disabled">Seleccione una categoria</option>
                 <div th:each="categoria : ${categorias}">
                     <option th:text="${categoria.name}" th:value="${categoria.id}"></option>
                 </div>

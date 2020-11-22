@@ -49,7 +49,7 @@ public class DocumentoWordController {
         title.setAlignment(ParagraphAlignment.CENTER);
         XWPFRun titleRun = title.createRun();
 
-        titleRun.setText("REPORTE DE WORKSHOP " + workshop.getName().toUpperCase());
+        titleRun.setText("REPORTE DEL WORKSHOP \"" + workshop.getName().toUpperCase() + "\"");
         titleRun.setBold(true);
         titleRun.setFontFamily("Arial");
         titleRun.setFontSize(20);

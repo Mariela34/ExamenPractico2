@@ -7,15 +7,15 @@
 <title>Categorías</title>
 </head>
 <body>
-	<div>
-		<h1>Lista de Categorías</h1>
+	<div style="display: inline-block;">
+		<h1 style="display: inherit;margin: 50px 40px;">
+			Lista de Categorías</h1>
 	</div>
 	<div>
 		<table id="categorias">
 			<thead>
 				<tr>
 					<th>Nombre</th>
-					<th>Estado</th>
 					<th>Opciones</th>
 				</tr>
 			</thead>
@@ -23,15 +23,9 @@
 			<tr th:if="${categorias.isEmpty()}">
 				<td th:text="${mensaje}"></td>
 				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 				<tr th:each="categoria : ${categorias}">
 					<td th:text="${categoria.name}"></td>
-					<td th:text="${categoria.status}"></td>
 					<td><a th:href="@{'/editar/categoria/' + ${categoria.id}}"><button>Editar</button><a/>
 					<a th:href="@{'/eliminar/categoria/' + ${categoria.id}}"><button>Eliminar</button><a/></td>
 				</tr>

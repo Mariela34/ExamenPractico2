@@ -7,15 +7,15 @@
     <title>Workshop's</title>
 </head>
 <body>
-<div>
+<div style="margin: 10px 40px;">
     <h1>Lista de Workshops</h1>
 </div>
 <div>
     <a th:href="'/registrarWorkshop'"><button>Registrar nuevo workshop</button><a/>
         <a th:href="'/'"><button>Volver al home</button><a/>
 </div>
-<div>
-    <h2> Busqueda de workshops por autor</h2>
+<div style="display: inline-block;">
+    <h1 style="display: inherit;margin: 50px 40px;"> Busqueda de workshops por autor</h1>
     <form action="#" th:action="@{'/buscar/autor'}" method="post" th:object="${workshop}">
         <div style="margin: 30px 30px;">
             <label for="autor">Ingrese el autor para empezar a buscar</label>

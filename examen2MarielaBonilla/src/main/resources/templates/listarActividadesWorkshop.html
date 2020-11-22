@@ -7,8 +7,8 @@
     <title>Actividades</title>
 </head>
 <body>
-<div>
-    <h1>Lista de actividades del <span th:text="${workshop.name}"></span></h1>
+<div style="display: inline-block;">
+    <h1 style="display: inherit;margin: 50px 40px;">Lista de actividades del workshop " <span th:text="${workshop.name}"></span>"</h1>
 </div>
 </div>
     <a th:href="@{'/registrarActividad/' + ${workshop.id}}"><button>Agregar nueva actividad</button></a>
@@ -16,8 +16,8 @@
     <a th:href="@{'/listarWorkshops'}"><button>Ir a la lista de workshops</button><a/>
     <a th:href="'/'"><button>Volver al home</button><a/>
 </div>
-        <div>
-            <h1>
+        <div style="display: inline-block;">
+            <h1 style="display: inherit;margin: 50px 40px;">
                 Lista de actividades del workshop
             </h1>
         </div>

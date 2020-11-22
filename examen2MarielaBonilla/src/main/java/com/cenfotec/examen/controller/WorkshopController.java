@@ -171,11 +171,13 @@ public class WorkshopController {
 		Optional<Workshop> workshopOptional = workService.get(id.get());
 		if(workshopOptional.isPresent()){
 			Workshop  w = workshopOptional.get();
-			for (Actividad a : w.getActividades()){
-				LocalTime t =  a.getTime();
-				horas += t.getHour();
-				minutos += t.getMinute();
-				segundos += t.getSecond();
+			if(w.getActividades() != null){
+				for(Actividad a : w.getActividades()){
+					LocalTime t = a.getTime();
+					horas += t.getHour();
+					minutos += t.getMinute();
+					segundos += t.getSecond();
+				}
 			}
 			w.setTiempoDuracion(obtenerTiempoDuracion(horas,minutos,segundos));
 			model.addAttribute("mensaje", "No hay actividades registradas");
@@ -271,11 +273,13 @@ public class WorkshopController {
 			for(Workshop w :  workService.getAll()){
 				int horas = 0, minutos = 0, segundos = 0;
 				if(w.getAutor().equals(workshop.getAutor())){
-					for(Actividad a : w.getActividades()){
-						LocalTime t = a.getTime();
-						horas += t.getHour();
-						minutos += t.getMinute();
-						segundos += t.getSecond();
+					if(w.getActividades() != null){
+						for(Actividad a : w.getActividades()){
+							LocalTime t = a.getTime();
+							horas += t.getHour();
+							minutos += t.getMinute();
+							segundos += t.getSecond();
+						}
 					}
 					w.setTiempoDuracion(obtenerTiempoDuracion(horas,minutos,segundos));
 					ws.add(w);
@@ -293,9 +297,8 @@ public class WorkshopController {
 		List<Categoria> categorias = new ArrayList<Categoria>();
 		for (Categoria c : catService.getAll()){
 			if (c != null){
-				if(c.getStatus()==1){
-					categorias.add(c);
-				}
+
+				categorias.add(c);
 			}
 		}
 		model.addAttribute("mensaje", "No hay workshops registrados");
@@ -310,9 +313,7 @@ public class WorkshopController {
 		List<Categoria> categorias = new ArrayList<Categoria>();
 		for (Categoria c : catService.getAll()){
 			if (c != null){
-				if(c.getStatus()==1){
-					categorias.add(c);
-				}
+				categorias.add(c);
 			}
 		}
 
@@ -321,11 +322,13 @@ public class WorkshopController {
 			for(Workshop w :  workService.getAll()){
 				int horas = 0, minutos = 0, segundos = 0;
 				if(w.getCategoria().getId().equals(workshop.getCategoria().getId())){
-					for(Actividad a : w.getActividades()){
-						LocalTime t = a.getTime();
-						horas += t.getHour();
-						minutos += t.getMinute();
-						segundos += t.getSecond();
+					if(w.getActividades() != null){
+						for(Actividad a : w.getActividades()){
+							LocalTime t = a.getTime();
+							horas += t.getHour();
+							minutos += t.getMinute();
+							segundos += t.getSecond();
+						}
 					}
 					w.setTiempoDuracion(obtenerTiempoDuracion(horas,minutos,segundos));
 
@@ -373,11 +376,13 @@ public class WorkshopController {
 
 					int horas = 0, minutos = 0, segundos = 0;
 
-					for(Actividad a : w.getActividades()){
-						LocalTime t = a.getTime();
-						horas += t.getHour();
-						minutos += t.getMinute();
-						segundos += t.getSecond();
+					if(w.getActividades() != null){
+						for(Actividad a : w.getActividades()){
+							LocalTime t = a.getTime();
+							horas += t.getHour();
+							minutos += t.getMinute();
+							segundos += t.getSecond();
+						}
 					}
 					w.setTiempoDuracion(obtenerTiempoDuracion(horas,minutos,segundos));
 

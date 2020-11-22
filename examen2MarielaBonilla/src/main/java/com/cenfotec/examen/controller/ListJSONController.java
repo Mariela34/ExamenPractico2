@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/get")
+@RequestMapping("/workshopsjson")
 public class ListJSONController {
 
     @Autowired
     WorkshopService workService;
 
-    @RequestMapping(path="/workshopsjson", method=RequestMethod.GET)
+    @GetMapping
     public List<Workshop> getWorkshops(){
         List<Workshop> ws = new ArrayList<Workshop>();
         if(workService.getAll() != null){
